@@ -135,7 +135,8 @@ int print_int(va_list types, char buffer[],
 	if (n < 0)
 	{
 		num = (unsigned long int)((-1) * n);
-		s_negative = 1;
+
+		is_negative = 1;
 	}
 
 	while (num > 0)
@@ -143,6 +144,7 @@ int print_int(va_list types, char buffer[],
 		buffer[i--] = (num % 10) + '0';
 		num /= 10;
 	}
+
 	i++;
 
 	return (write_number(is_negative, i, buffer, flags, width, precision, size));
